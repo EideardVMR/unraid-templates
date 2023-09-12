@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <PluginURL>https://raw.githubusercontent.com/EideardVMR/unraid-easybackup/main/easybackup.plg</PluginURL>
+  <PluginAuthor>Eideard</PluginAuthor>
+  <Beta>True</Beta>
+  <Category>Backup: Tools:</Category>
+  <Name>EasyBackup</Name>
+  <Description>
+  This plugin is for application developers ONLY.  It will create the category entries for application templates so that Community Applications can display the apps correctly.  (Either docker apps or plugins)
+  </Description>
+  <MinVer>6.12.0</MinVer>
+  <Licence>GPL-3.0 license</Licence>
+  <Support>https://forums.unraid.net/topic/145044-plugin-easybackup/</Support>
+  <Icon>https://raw.githubusercontent.com/EideardVMR/unraid-easybackup/main/icon.png</Icon>
+  <IconFA>copy</IconFA>
+</Containers>
