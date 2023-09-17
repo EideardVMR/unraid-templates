@@ -6,7 +6,7 @@
   <Category>Backup: Tools:</Category>
   <Name>EasyBackup</Name>
   <Description>
-  This plugin is for application developers ONLY.  It will create the category entries for application templates so that Community Applications can display the apps correctly.  (Either docker apps or plugins)
+  This plugin allows you to create backups of your virtual machines (VMs) and docker containers. Additionally you can create snapshots of the VMs.
   </Description>
   <MinVer>6.12.0</MinVer>
   <Licence>GPL-3.0 license</Licence>
