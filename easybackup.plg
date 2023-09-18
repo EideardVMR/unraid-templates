@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE PLUGIN [
+<!ENTITY name "easybackup">
+<!ENTITY author "Sascha Michel">
+<!ENTITY version "2023.09.12">
+<!ENTITY md5 "24a972916c241d2a6f35d49122b48b89">
+<!ENTITY launch "Settings/easybackup">
+<!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
+<!ENTITY github "EideardVMR/unraid-easybackup">
+<!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
+]>
+<PLUGIN name="&name;" author="&author;" version="&version;" launch="&launch;" pluginURL="&pluginURL;" min="6.12.3" icon="file-text-o" support="https://forums.unraid.net/topic/48286-plugin-ca-user-scripts/">
+    <SUPPORT>https://forums.unraid.net/topic/145044-plugin-easybackup/</SUPPORT>
+    <CHANGES>
+###2023.09.18
+- Fix: Uninstaller removes now all Files.
+- Fix: Show Last Backup Timestamp
+###2023.09.12
+- Fix installing Bugs for Beta release
+###2023.09.11
+- Adding Dashboard Items
+- Adding Cleanup old Backups
+- Fixing some Bugs
+###2023.09.02
+- Initial Release - BETA
+    </CHANGES>
+    <!-- The 'pre-install' script. -->
+    <!--
+        The 'source' file.
+    -->
+    <FILE Name="/boot/config/plugins/&name;/&name;-&version;.txz" Run="upgradepkg --install-new">
+        <URL>https://raw.githubusercontent.com/&github;/main/archive/&name;-&version;.txz</URL>
+        <MD5>&md5;</MD5>
+    </FILE>
+    <!--
+        The 'post-install' script
+    -->
+    <FILE Run="/bin/bash">
+        <INLINE>
+rm -f $(ls /boot/config/plugins/&name;/&name;*.txz 2&gt;/dev/null | grep -v '&version;')
+
+echo ""
+echo "----------------------------------------------------"
+echo " &name; has been installed."
+echo " Copyright 2023, &author;"
+echo " Version: &version;"
+echo "----------------------------------------------------"
+echo ""
+      </INLINE>
+    </FILE>
+    <!--
+      The 'remove' script.
+    -->
+    <FILE Run="/bin/bash" Method="remove">
+        <INLINE>
+
+removepkg &name;-&version;
+
+rm -rf /boot/config/plugins/&name;
+rm -rf &plugdir;
+
+echo ""
+echo "-----------------------------------------------------------"
+echo " &name; has been removed."
+echo " Version: &version;"
+echo "-----------------------------------------------------------"
+echo ""
+        </INLINE>
+    </FILE>
+</PLUGIN>
